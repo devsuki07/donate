@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Donations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #0a1a0f;
+            --card-bg: #112318;
+            --accent: #2e8b57;
+            --accent-hover: #1d5e3a;
+            --text: #e0e0e0;
+            --text-muted: #a0a0a0;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        
+        .crypto-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid #1d3b28;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .crypto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .address-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #1d3b28;
+        }
+        
+        .address-text {
+            word-break: break-all;
+            text-align: center;
+            flex-grow: 1;
+            padding: 0 10px;
+        }
+        
+        .copy-btn {
+            background-color: var(--accent);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 6px;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        
+        .copy-btn:hover {
+            background-color: var(--accent-hover);
+        }
+        
+        .header-container {
+            background: linear-gradient(135deg, #2e8b57, #143625);
+            border-radius: 12px;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 8px;
+            z-index: 1000;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div id="copySuccess" class="success-message">
+            Address copied to clipboard!
+        </div>
+        
+        <div class="header-container text-center">
+            <h1 class="display-4 fw-bold">😊 Please support My Work</h1>
+            <p class="lead">Your crypto donations help me continue creating content and services</p>
+            <p class="mb-0 text-white-50">Every contribution makes a difference, no matter how small</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="crypto-card">
+                    <h3 class="mb-3">BNB Chain (BEP20)</h3>
+                    <p class="text-muted">Binance Smart Chain</p>
+                    <div class="address-row">
+                        <span id="bnb-address" class="address-text">0xe1a4a834630d70454bb5f05a9cfd9206b6da3998</span>
+                        <button class="copy-btn" onclick="copyToClipboard('bnb-address')">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="crypto-card">
+                    <h3 class="mb-3">TRON (TRC20)</h3>
+                    <p class="text-muted">TRON Network</p>
+                    <div class="address-row">
+                        <span id="tron-address" class="address-text">TKvdCAwBigw4Xct7m3wRJqg354rfgXe5zQ</span>
+                        <button class="copy-btn" onclick="copyToClipboard('tron-address')">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="crypto-card">
+                    <h3 class="mb-3">Solana</h3>
+                    <p class="text-muted">Solana Network</p>
+                    <div class="address-row">
+                        <span id="solana-address" class="address-text">6R7Dq3QHh4FeXmxLjicwuCh1HS2bR5EJ11WBmrL48nvC</span>
+                        <button class="copy-btn" onclick="copyToClipboard('solana-address')">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="crypto-card">
+                    <h3 class="mb-3">Bitcoin</h3>
+                    <p class="text-muted">Bitcoin Network</p>
+                    <div class="address-row">
+                        <span id="btc-address" class="address-text">17tPEayNHBf9o6PLHhhmsx4ce2dGz4Yr9U</span>
+                        <button class="copy-btn" onclick="copyToClipboard('btc-address')">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <p class="text-muted">Thank you for your generosity and support!</p>
+            <p class="small">Please verify all addresses before sending any transactions</p>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const el = document.getElementById(elementId);
+            
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = el.innerText;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'absolute';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            
+            // Select the text and copy it
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            
+            // Show success message
+            showSuccessMessage();
+        }
+        
+        function showSuccessMessage() {
+            const message = document.getElementById('copySuccess');
+            message.style.display = 'block';
+            
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
