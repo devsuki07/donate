@@ -14,8 +14,9 @@
             --card-bg: #112318;
             --accent: #2e8b57;
             --accent-hover: #1d5e3a;
-            --text: #e0e0e0;
-            --text-muted: #a0a0a0;
+            --text: #ffffff;
+            --text-muted: #ffffff;
+            --bkash-color: #e11972;
         }
         
         body {
@@ -55,6 +56,7 @@
             text-align: center;
             flex-grow: 1;
             padding: 0 10px;
+            color: #ffffff;
         }
         
         .copy-btn {
@@ -96,6 +98,39 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        
+        .bkash-btn {
+            background-color: var(--bkash-color);
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .bkash-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .text-muted {
+            color: #ffffff !important;
+        }
+        
+        .small {
+            color: #ffffff;
+        }
+        
+        .bkash-card {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -106,12 +141,20 @@
         
         <div class="header-container text-center">
             <h1 class="display-4 fw-bold">😊 Please support My Work</h1>
-            <p class="lead">Your crypto donations help me continue creating content and services</p>
-            <p class="mb-0 text-white-50">Every contribution makes a difference, no matter how small</p>
+            <p class="lead">Your donations help me continue creating content and services</p>
+            <p class="mb-0">Every contribution makes a difference, no matter how small</p>
         </div>
         
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8">
+                <div class="crypto-card bkash-card">
+                    <h3 class="mb-3">bKash</h3>
+                    <p class="text-muted">Mobile Financial Service</p>
+                    <a href="https://shop.bkash.com/ma-babar-dowa-gaming-ghor01601/paymentlink" target="_blank" class="btn bkash-btn">
+                        Donate with bKash
+                    </a>
+                </div>
+                
                 <div class="crypto-card">
                     <h3 class="mb-3">BNB Chain (BEP20)</h3>
                     <p class="text-muted">Binance Smart Chain</p>
